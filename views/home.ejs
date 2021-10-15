@@ -1,0 +1,54 @@
+<html>
+<head>
+    <style>
+     
+     body{
+        display:flex;
+        flex-direction:column;
+        
+        background: #200122;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #6f0000, #200122);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #6f0000, #200122); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+margin: 0;
+       }
+ .form-div{
+     display:flex;
+     flex-direction: column;
+     background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4cV1_OTYb09pLR-hGLZcpaGKo0q8K74latw&usqp=CAU);
+     text-align: center;
+     justify-content: center;
+     box-shadow: 0px 5px 30px rgb(21, 12, 143);
+     margin: 10% 0 0 0;
+     min-height: 50%;
+     
+ }
+ 
+
+</style>
+</head>
+<body>
+    
+<ul class="contact">
+    <% for(let i of contact_list) { %>
+          <li> <p> <%= i.name  %> </p> </li>
+          <li> <p> <%= i.phone %> </p> </li>
+          <a href="/delete-contact/?phone=<%= i.phone %>">
+            <i class="fa-solid fa-star-of-life"></i>
+          </a>
+    <% } %>
+
+</ul>
+<div class="form-div">
+
+    <h1>CONTACT LIST</h1>
+    <form action="/contact" method="post">
+        <input type="text" name="name" placeholder="enter your details" required>
+        <input type="number" name="phone" placeholder="enter your details" required>
+        <button type="submit">send</button>
+    </form>
+</div>
+    <script src="https://kit.fontawesome.com/43c84fdd81.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
